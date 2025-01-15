@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from festindia import views
 
 urlpatterns = [
+    path('', views.homepage),
     path('admin/', admin.site.urls),
+    path('about/',views.about ),
+    path('contact/',views.contact ),
+    path('blog/',views.blog ),
+    path('product/',views.product ),
+    path('signup/',views.signup ),
+    path('login/',views.login ),
+
 ]
