@@ -7,9 +7,27 @@ from django.contrib.auth.models import User
 from .forms import UserForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from service.models import Service
+from news.models import News
 
 def homepage(request):
-    return render(request, 'index.html')
+    newsdata=News.objects.all()
+    servicesData=Service.objects.all().order_by('-name')
+
+    data={
+        'services':servicesData,
+        'newsData':newsdata
+    }
+
+    return render(request, 'index.html',data)
+
+def news(request):
+    newsdata=News.objects.get()
+    data={
+        'newsData':newsdata  
+    }
+    return render(request, 'news.html',data)
+
 
 def about(request):
     return render(request, 'about.html')

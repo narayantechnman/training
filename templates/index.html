@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<marquee onmouseover="stop()" onmouseout="start()">
+   {% for n in newsData %}
+   <a href="/news/{{nid}}">{{ n.ntitle }} &nbsp; &nbsp; &nbsp; </a> 
+   {% endfor %}
+</marquee>
       <section class="slider_section">
          <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
 
@@ -73,34 +78,16 @@
          <div class="container">
             <div class="white_bg">
             <div class="row">
+               {% for n  in services %}
                <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                   <div class="for_box">
-                     <i><img src="/static/icon/1.png"/></i>
-                     <h3>Data recovery</h3>
-                     <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
+                     <i><img src="{{n.icon}}"/></i>
+                     <h3>{{n.name}}</h3>
+                     <p>{{n.title}}</p>
                   </div>
                </dir>
-               <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="for_box">
-                     <i><img src="/static/icon/2.png"/></i>
-                     <h3>Computer repair</h3>
-                     <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
-                  </div>
-               </dir>
-               <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="for_box">
-                     <i><img src="/static/icon/3.png"/></i>
-                     <h3>Mobile service</h3>
-                     <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
-                  </div>
-               </dir>
-               <dir class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="for_box">
-                     <i><img src="/static/icon/4.png"/></i>
-                     <h3>Network solutions</h3>
-                     <p>Perspiciatis eos quos totam cum minima autPerspiciatis eos quos</p>
-                  </div>
-               </dir>
+               {% endfor %}
+               
                <div class="col-md-12">
                   <a class="read-more">Read More</a>
                </div>
